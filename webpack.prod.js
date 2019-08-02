@@ -11,6 +11,7 @@ module.exports = merge(common, {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
+      'process.env.API_KEY': JSON.stringify('bad46dfee1ae1125ec4faf31e63449de'),
     }),
   ],
 });
