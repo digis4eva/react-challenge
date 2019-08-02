@@ -35,6 +35,7 @@ class Graph extends React.Component {
     valueAxis.renderer.labels.template.adapter.add('text', text => `${text}°C`);
 
     dateAxis.renderer.minGridDistance = 45;
+    dateAxis.tooltipDateFormat = 'EEEE HH:mm';
 
     const yesterday = addDays(new Date(), -1);
 
