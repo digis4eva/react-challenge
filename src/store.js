@@ -1,25 +1,18 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-import form from './reducers/form';
+import forecast from './reducers/forecast';
 
-const Config = process.env.NODE_ENV;
+const config = process.env.NODE_ENV;
 
-const getStore = () => {
-  if (Config === 'development') {
-    const store = createStore(
-      combineReducers({
-        form,
-      }),
-      applyMiddleware(logger),
-    );
-    return store;
-  } else if (Config === 'production') {
-    const store = createStore(combineReducers({
-      form,
-    }));
-    return store;
-  }
-};
+const getStore = () =>
+  createStore(
+    combineReducers({
+      forecast,
+    }),
+    applyMiddleware(thunk),
+    config === 'development' ? applyMiddleware(logger) : null,
+  );
 
 export default getStore;
