@@ -21,7 +21,8 @@
           ".jsx"
         ]
       }
-    ]
+    ],
+    "no-plusplus": "off"
   },
   "env": {
     "browser": true,
